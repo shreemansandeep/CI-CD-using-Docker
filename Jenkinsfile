@@ -42,7 +42,7 @@ pipeline {
           }
         }
      
-    <!--  stage('Run Docker container on Jenkins Agent') {
+      stage('Run Docker container on Jenkins Agent') {
              
             steps 
 			{
@@ -57,6 +57,6 @@ pipeline {
  
             }
         }
-    }  -->
+    }  
 	}
     
