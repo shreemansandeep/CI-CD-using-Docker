@@ -20,7 +20,7 @@
         </dependency>
   </dependencies>
   <build>
-  <pluginManagement>
+ <!-- <pluginManagement>
    <plugins>
 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -38,10 +38,10 @@
                     <version>2.1.2</version>
                 </plugin>
             </plugins>
-        </pluginManagement>
+        </pluginManagement> -->
   <plugins>
     
-            <plugin>
+          <!--  <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
@@ -49,8 +49,8 @@
                         <addMavenDescriptor>false</addMavenDescriptor>
                     </archive>
                 </configuration>
-            </plugin>
-            <plugin>
+            </plugin> -->
+          <!--  <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
@@ -58,7 +58,16 @@
                         <addMavenDescriptor>false</addMavenDescriptor>
                     </archive>
                 </configuration>
-            </plugin>
+            </plugin> -->
+    <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.3.1</version>
+	<configuration>
+	<!-- <warSourceDirectory>ProjectWeb</warSourceDirectory> --> <!-- <warSourceDirectory></warSourceDirectory> -->
+	<failOnMissingWebXml>false</failOnMissingWebXml>
+	</configuration>
+	</plugin>
         </plugins>
     </build>
     <repositories>
