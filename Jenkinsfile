@@ -1,19 +1,19 @@
 pipeline {
     agent any
 	
-	  tools
+//	  tools
   //  {
   //     maven "Maven"
   //  }
  stages {
-      stage('checkout') {
+      stage('Git checkout') {
            steps {
              
-                git branch: 'master', url: 'https://github.com/shreemansandeep/CI-CD-using-Docker.git'
+                git credentialsId: 'GitCred', url: 'https://github.com/shreemansandeep/CI-CD-using-Docker.git'
              
           }
         }
-	 stage('Execute Maven') {
+	 stage('Maven Build') {
            steps {
              
                 sh 'mvn clean package'             
