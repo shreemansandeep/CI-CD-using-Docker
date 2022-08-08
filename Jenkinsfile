@@ -24,9 +24,9 @@ pipeline {
   stage('Docker Build image and Tag') {
            steps {
               
-              //  sh 'docker build -t samplewebapp:latest .' 
-                sh 'docker tag samplewebapp dockersandheep/samplewebapp:latest'
-                //sh 'docker tag samplewebapp dockersandheep/samplewebapp:$BUILD_NUMBER'
+                sh 'docker build -t dockersandheep/samplewebapp:latest .' 
+               // sh 'docker tag samplewebapp dockersandheep/samplewebapp:latest'
+               // sh 'docker tag samplewebapp dockersandheep/samplewebapp:$BUILD_NUMBER'
                
           }
         }
@@ -34,11 +34,12 @@ pipeline {
   stage('Push image to Docker Hub') {
           
             steps {
-        withDockerRegistry([ credentialsId: "DockerHub", url: "" ]) {
-          sh  'docker push dockersandheep/samplewebapp:latest'
+      //   withDockerRegistry([ credentialsId: "DockerHub", url: "" ]) {
+      //    sh  'docker push dockersandheep/samplewebapp:latest'
         //  sh  'docker push dockersandheep/samplewebapp:$BUILD_NUMBER' 
-        }
-                  
+     //   }
+                 sh 'docker login -u dockersandheep -p Docker@66'
+		 dh 'docker push dockersandheep/samplewebapp:latest'
           }
         }
      
