@@ -21,17 +21,17 @@ pipeline {
         }
         
 
-  stage('Docker Build and Tag') {
+  stage('Docker Build image and Tag') {
            steps {
               
-                sh 'docker build -t samplewebapp:latest .' 
+              //  sh 'docker build -t samplewebapp:latest .' 
                 sh 'docker tag samplewebapp dockersandheep/samplewebapp:latest'
                 //sh 'docker tag samplewebapp dockersandheep/samplewebapp:$BUILD_NUMBER'
                
           }
         }
      
-  stage('Publish image to Docker Hub') {
+  stage('Push image to Docker Hub') {
           
             steps {
         withDockerRegistry([ credentialsId: "DockerHub", url: "" ]) {
